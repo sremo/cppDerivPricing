@@ -50,6 +50,14 @@ double SimpleMontecarlo1(double Expiry,
     return mean;
 }
 
+template <class T>
+bool from_string(T& t, 
+                 const string& s, 
+                 ios_base& (*f)(ios_base&))
+{
+  std::istringstream iss(s);
+  return !(iss >> f >> t).fail()`;
+}
 
 
 int main(int argc, char* argv[]){
@@ -63,12 +71,12 @@ int main(int argc, char* argv[]){
     unsigned long NumberOfPaths = 1000000;
 
     if(argc > 1){
-        from_string(Expiry,argv[1],dec);
-        from_string(Strike,argv[2],dec);
-        from_string(Spot,argv[3],dec);
-        from_string(Vol,argv[4],dec);
-        from_string(r,argv[5],dec);
-        from_string(NumberOfPaths,argv[5],dec);
+      from_string<double>(Expiry,argv[1],dec);
+      from_string<double>(Strike,argv[2],dec);
+      from_string<double>(Spot,argv[3],dec);
+      from_string<double>(Vol,argv[4],dec);
+      from_string<double>(r,argv[5],dec);
+      from_string<double>(NumberOfPaths,argv[6],dec);
     }
     double optPrice = SimpleMontecarlo1(Expiry,Strike,Spot,Vol,r,NumberOfPaths);
     cout << "This is the price: " << optPrice << endl;
