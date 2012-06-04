@@ -9,6 +9,25 @@
 using namespace std;
 
 
+ double string_to_double( const std::string& s )
+ {
+   std::istringstream i(s);
+   double x;
+   if (!(i >> x))
+     return 0;
+   return x;
+ } 
+
+ int string_to_int( const std::string& s )
+ {
+   std::istringstream i(s);
+   double x;
+   if (!(i >> x))
+     return 0;
+   return x;
+ } 
+
+
 double GetGaussianBoxMuller(){
 
     double U1 = ((double)rand())/RAND_MAX;
@@ -50,14 +69,6 @@ double SimpleMontecarlo1(double Expiry,
     return mean;
 }
 
-template <class T>
-bool from_string(T& t, 
-                 const string& s, 
-                 ios_base& (*f)(ios_base&))
-{
-  std::istringstream iss(s);
-  return !(iss >> f >> t).fail()`;
-}
 
 
 int main(int argc, char* argv[]){
@@ -70,13 +81,13 @@ int main(int argc, char* argv[]){
     double r = 0.05;
     unsigned long NumberOfPaths = 1000000;
 
-    if(argc > 1){
-      from_string<double>(Expiry,argv[1],dec);
-      from_string<double>(Strike,argv[2],dec);
-      from_string<double>(Spot,argv[3],dec);
-      from_string<double>(Vol,argv[4],dec);
-      from_string<double>(r,argv[5],dec);
-      from_string<double>(NumberOfPaths,argv[6],dec);
+    if(argc == ){
+        Expiry = string_to_double(argv[1]);
+        Strike = string_to_double(argv[2]);
+        Spot = string_to_double(argv[3]);
+        Vol = string_to_double(argv[4]);
+        r = string_to_double(argv[5]);
+        NumberOfPaths = string_to_int(argv[6]);
     }
     double optPrice = SimpleMontecarlo1(Expiry,Strike,Spot,Vol,r,NumberOfPaths);
     cout << "This is the price: " << optPrice << endl;
