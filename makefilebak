@@ -1,0 +1,3 @@
+all:
+	g++ SimpleMCMain1.cpp Random.cpp -o SimpleMCMain1
+
