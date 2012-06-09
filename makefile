@@ -10,4 +10,4 @@ Random.o: Random.cpp
 	g++ -c Random.cpp
 
 clean:
-	rm -rf *o
+	rm -rf *.o

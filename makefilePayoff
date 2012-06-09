@@ -1,0 +1,16 @@
+all: SimpleMCPayoff
+
+SimpleMCPayoff: PayoffClMC.o Random.o PayOff.o
+	g++ PayoffClMC.o Random.o PayOff.o -o SimpleMCPayoff
+
+PayoffClMC.o: PayoffClMC.cpp
+	g++ -c PayoffClMC.cpp
+
+Random.o: Random.cpp
+	g++ -c Random.cpp
+
+Payoff.o: Payoff.cpp
+	g++ -c Payoff.cpp
+
+clean:
+	rm -rf *.o
