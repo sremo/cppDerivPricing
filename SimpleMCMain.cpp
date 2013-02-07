@@ -56,7 +56,7 @@ double SimpleMontecarlo1(double Expiry,
 
     }
     double mean = sum/NumberOfPaths;
-    mean *= mean*exp(-r*Expiry);
+    mean *= exp(-r*Expiry);
     return mean;
 }
 
