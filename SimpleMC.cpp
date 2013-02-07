@@ -1,6 +1,7 @@
 #include "SimpleMC.h"
 #include "Random.h"
-#includ <cmath.h>
+#include "math.h"
+#include <iostream>
 
 using namespace std;
 
@@ -19,7 +20,9 @@ double SimpleMonteCarlo2(const PayOff& thePayOff,
   double sum = 0;
   for(int i=0;i<NumberOfPaths; i++){
     sum += thePayOff(base_price*exp(variance_root*GetGaussianBoxMuller()));
+  
   }
+  
   
   return exp(-r*Expiry)*sum/NumberOfPaths;
 

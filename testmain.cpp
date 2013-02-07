@@ -6,12 +6,12 @@
 using namespace std;
 
 int main(int argc, char*argv[]){
-  double Expiry = 10;
-  double Strike = 50;
+  double Expiry = 50;
+  double Strike = 20;
   double Spot = 30;
-  double Vol = 10;
+  double Vol = 0.5;
   double r = 2;
-  unsigned long NumberOfPaths = 10;
+  unsigned long NumberOfPaths = 1000;
   if(argc == 7){
     Expiry = atof(argv[1]);//string_to_double(argv[1]);
     Strike = atof(argv[2]); //string_to_double(argv[2]);

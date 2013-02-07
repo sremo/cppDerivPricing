@@ -1,12 +1,12 @@
 all: testmain
 
-testmain: testmain.o SimpleMC.o PayOff.o
-	g++ testmain.o SimpleMC.o PayOff.o -o testmain
+testmain: testmain.o SimpleMC.o PayOff.o Random.o
+	g++ -o testmain testmain.o SimpleMC.o PayOff.o Random.o
 
-testmain.o: testmain.cpp SimpleMC.o
-        g++ -c SimpleMC.o testmain.cpp
+testmain.o: testmain.cpp
+	g++ -c testmain.cpp
 
-SimpleMC.o: SimpleMC.cpp PayoOff.o Random.o
+SimpleMC.o: SimpleMC.cpp
 	g++ -c SimpleMC.cpp
 
 PayOff.o: PayOff.cpp
