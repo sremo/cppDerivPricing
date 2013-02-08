@@ -1,0 +1,19 @@
+all: testmain2
+
+testmain2: testmain2.o SimpleMC2.o PayOff2.o Random.o
+	g++ -o testmain2 testmain2.o SimpleMC2.o PayOff2.o Random.o
+
+testmain2.o: testmain2.cpp
+	g++ -c testmain2.cpp
+
+SimpleMC2.o: SimpleMC2.cpp
+	g++ -c SimpleMC2.cpp
+
+PayOff2.o: PayOff2.cpp
+	g++ -c PayOff2.cpp
+
+Random.o: Random.cpp
+	g++ -c Random.cpp
+
+clean:
+	rm -rf *.o
